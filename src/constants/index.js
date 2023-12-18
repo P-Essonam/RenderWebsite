@@ -1,3 +1,5 @@
+import { Table } from "../components";
+
 export const navLinks = [
     { href: "/", label: "Dashboard" },
     { href: "/BluePrints", label: "Blueprints" },
@@ -16,3 +18,10 @@ export const apps = [
     { name: 'amazon', status: 'deployed', type: 'static site', runtime: 'static',region: 'global',lastDeployed:'10 days ago' },
     { name: 'facebook', status: 'deployed', type: 'static site', runtime: 'static',region: 'global',lastDeployed:'10 days ago' },
 ]
+
+export const tdData = [
+    { name: 'Active 5', content: 0},
+    { name: 'Suspended 0',  content: 1},
+    { name: 'All 5', content: 2},
+]
+

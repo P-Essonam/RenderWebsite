@@ -1,9 +1,17 @@
-import React from 'react'
-import { Table } from '../components'
+import React, { useState } from 'react'
+import { NoServicesMessage, Table,Td } from '../components'
 import { FaSearch } from 'react-icons/fa'
+import { tdData } from '../constants'
 
 
 const App = () => {
+  
+  const [selectedButton, setSelectedButton] = useState(tdData[0].name);
+
+  const handleButtonClick = (name) => {
+    setSelectedButton(name);
+  };
+
   return (
     <main className='grow w-full flex flex-col items-center'>
 
@@ -14,7 +22,33 @@ const App = () => {
               <input className='grow outline-none' placeholder='Search servicies' type="search" name="" id="" />
             </div>
         </div>
-        <Table />
+        <div className='w-3/4 flex justify-end mt-8'>
+          <table className='border border-blue-200 rounded-2xl'>
+            <tbody>
+              <tr>
+                {
+                  tdData.map((item) => (
+                    <Td name={item.name} key={item.name} selected={selectedButton === item.name} onClick={(e) => {e.preventDefault();handleButtonClick(item.name)}}/>
+                    )
+                  )
+                }
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className='w-3/4 grow'>
+
+            {
+              (selectedButton === tdData[0].name ||  selectedButton === tdData[2].name) ? <Table key={selectedButton} /> : '' 
+            }
+            {
+              (selectedButton === tdData[1].name ) ? <NoServicesMessage key={selectedButton} /> : '' 
+            }
+        </div>
+
+        
+
     </main>
   )
 }

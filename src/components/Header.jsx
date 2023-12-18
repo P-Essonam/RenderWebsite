@@ -6,7 +6,7 @@ import Button from './Button';
 
 const Header = () => {
   return (
-    <header className='sticky top-0 w-full flex justify-center items-center p-4 border-b border-blue-200 text-noir'>
+    <header className='sticky top-0 w-full flex justify-center items-center p-4 border-b border-blue-200 text-noir bg-white'>
         <section className='w-3/4 p-2 flex justify-between'>
 
             <div className='flex grow'>
