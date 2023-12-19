@@ -3,8 +3,17 @@ import { NavLink,Link } from 'react-router-dom';
 import { FaPlus,FaUser,FaCaretDown } from 'react-icons/fa'
 import { navLinks,externalNavLinks } from '../constants';
 import Button from './Button';
+import UserDialog from './UserDialog';
+import NewDialog from './NewDialog';
+import { useState } from 'react';
 
 const Header = () => {
+
+  const [open, setOpen] = useState(false)
+
+  const buttonClicked = () => {
+    setOpen(true)
+  }
   return (
     <header className='sticky top-0 w-full flex justify-center items-center p-4 border-b border-blue-200 text-noir bg-white'>
         <section className='w-3/4 p-2 flex justify-between'>
@@ -40,14 +49,11 @@ const Header = () => {
             </div>
 
             <div className='flex items-center space-x-6'>
-              
-              <Button name={'New'} icon={<FaPlus/>}/>
-              <div className='flex justify-center items-center space-x-3 hover:cursor-pointer'>
-                <FaUser className='text-xl text-slate-700'/>
-                <div>{`${`maximin2023@gmail.com`.slice(0,18)}...`}</div>
-                <FaCaretDown className='text-bleu text-lg'/>
-              </div>
+              <Button name={'New'} icon={<FaPlus/>} onClick={(e) => {e.preventDefault(); buttonClicked()}}/>
+              <NewDialog  open={open} setOpen={setOpen}/>
+              <UserDialog />
             </div>
+            
 
         </section>
     </header>

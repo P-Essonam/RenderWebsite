@@ -6,3 +6,5 @@ export { default as NewLink } from './NewLink';
 export { default as Table } from './Table';
 export { default as Td } from './Td';
 export { default as NoServicesMessage } from './NoServicesMessage';
+export { default as UserDialog } from './UserDialog';
+export { default as NewDialog } from './NewDialog';
